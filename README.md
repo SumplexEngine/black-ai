@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🤖 Black AI
 
-## Getting Started
+> Tu asistente de IA inteligente potenciado por Gemini
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38B2AC?style=flat-square&logo=tailwind-css)
+![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?style=flat-square&logo=supabase)
 
-```bash
+## ✨ Características
+
+- 🚀 **Next.js 15** con App Router y Turbopack
+- 🎨 **Diseño moderno** con Tailwind CSS
+- 🤖 **Gemini AI** de Google como motor de IA
+- 🔐 **Autenticación** completa con Supabase
+- 💾 **Base de datos** PostgreSQL con Supabase
+- 📱 **Responsive** para todos los dispositivos
+- 🌙 **Dark/Light mode**
+- ⚡ **Streaming** de respuestas en tiempo real
+
+## 🛠️ Tecnologías
+
+| Tecnología    | Uso             |
+| ------------- | --------------- |
+| Next.js 15    | Framework React |
+| TypeScript    | Tipado estático |
+| Tailwind CSS  | Estilos         |
+| Supabase      | Auth + Database |
+| Gemini AI     | Motor de IA     |
+| Framer Motion | Animaciones     |
+| Zustand       | Estado global   |
+
+## 🚀 Inicio Rápido
+
+### Prerrequisitos
+
+- Node.js 18+
+- npm o pnpm
+- Cuenta en Supabase
+- API Key de Gemini AI
+
+### Instalación
+
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/tu-usuario/black-ai.git
+   cd black-ai
+   Instalar dependencias
+   ```
+
+Bash
+
+npm install
+Configurar variables de entorno
+
+Bash
+
+cp .env.example .env.local
+Edita .env.local con tus credenciales.
+
+Iniciar en desarrollo
+
+Bash
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Abrir en el navegador
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+text
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
+📁 Estructura del Proyecto
+text
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+black-ai/
+├── src/
+│ ├── app/ # App Router (páginas)
+│ ├── components/ # Componentes React
+│ ├── lib/ # Utilidades y configuraciones
+│ ├── hooks/ # Custom hooks
+│ ├── store/ # Estado global (Zustand)
+│ ├── types/ # Tipos TypeScript
+│ └── constants/ # Constantes
+├── supabase/ # Archivos SQL
+├── public/ # Archivos estáticos
+└── ...
+📜 Scripts Disponibles
+Script Descripción
+npm run dev Inicia en modo desarrollo
+npm run build Compila para producción
+npm run start Inicia servidor de producción
+npm run lint Ejecuta ESLint
+npm run type-check Verifica tipos TypeScript
+npm run format Formatea código con Prettier
+🔒 Variables de Entorno
+env
 
-## Learn More
+# Supabase
 
-To learn more about Next.js, take a look at the following resources:
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Gemini AI
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+GOOGLE_AI_API_KEY=
 
-## Deploy on Vercel
+# App
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+NEXT_PUBLIC_APP_NAME="Black AI"
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+📝 Licencia
+MIT © Black AI
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Hecho con ❤️ y ☕
