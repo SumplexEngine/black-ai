@@ -17,6 +17,9 @@ export default function ConversationPage() {
   const loadedRef = useRef(false);
   const prevMessageCountRef = useRef(0);
 
+  // Crear un número único basado en convId para forzar re-mount del hook
+  const convKey = convId ? parseInt(convId.split("-")[0] || "0", 16) || 0 : 0;
+
   const {
     messages,
     isLoading,
@@ -26,6 +29,7 @@ export default function ConversationPage() {
     loadConversation,
     deleteMessagePair, // IMPORTANTE
   } = useChat({
+    key: convKey,
     conversationId: convId,
     mode: currentMode,
     onError: (error: string) => {
