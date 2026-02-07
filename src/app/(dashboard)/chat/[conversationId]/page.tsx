@@ -62,9 +62,18 @@ export default function ConversationPage() {
     setStoreLoading(isLoading);
   }, [isLoading, setStoreLoading]);
 
-  // Load on mount
+  // Load on mount or when convId changes
+  useEffect(() => {
+    if (convId) {
+      console.log("🔄 Cargando conversación:", convId);
+      // Resetear loadedRef cuando cambia convId
+      loadedRef.current = false;
+    }
+  }, [convId]);
+
   useEffect(() => {
     if (convId && !loadedRef.current) {
+      console.log("📌 Iniciando carga para:", convId);
       loadedRef.current = true;
       setActiveConversationId(convId);
       loadConversation(convId);

@@ -317,13 +317,19 @@ export function useChat(options: UseChatOptions = {}) {
 
   const loadConversation = useCallback(
     async (convId: string) => {
+      console.log("📥 Iniciando carga de conversación:", convId);
       setIsLoading(true);
 
       try {
         const res = await fetch(`/api/conversations/${convId}/messages`);
-        if (!res.ok) throw new Error("Error loading conversation");
+        if (!res.ok) {
+          const errorData = await res.json();
+          throw new Error(`API error: ${errorData.error || "Unknown error"}`);
+        }
 
         const data = await res.json();
+        console.log("📦 Datos recibidos del API:", data);
+
         const loadedMessages: ChatMessage[] = (data.messages || []).map(
           (msg: {
             id: string;
@@ -340,6 +346,7 @@ export function useChat(options: UseChatOptions = {}) {
           })
         );
 
+        console.log("✅ Mensajes cargados:", loadedMessages.length);
         setMessages(loadedMessages);
         setConversationId(convId);
       } catch (error: unknown) {
@@ -347,7 +354,7 @@ export function useChat(options: UseChatOptions = {}) {
           error instanceof Error
             ? error
             : new Error("Error loading conversation");
-        console.error("Error loading conversation:", err);
+        console.error("❌ Error loading conversation:", err);
         onError?.(err.message);
       } finally {
         setIsLoading(false);

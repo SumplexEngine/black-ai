@@ -26,6 +26,7 @@ export async function GET(
       .single();
 
     if (!conv) {
+      console.warn(`Conversación ${id} no encontrada para user ${user.id}`);
       return NextResponse.json(
         { error: "Conversación no encontrada" },
         { status: 404 }
@@ -40,9 +41,14 @@ export async function GET(
       .order("created_at", { ascending: true });
 
     if (error) {
+      console.error(`Error obteniendo mensajes para ${id}:`, error);
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
+    console.log(
+      `Mensajes cargados para conversación ${id}:`,
+      messages?.length || 0
+    );
     return NextResponse.json({ messages: messages || [] });
   } catch (error) {
     console.error("Error en GET messages:", error);
