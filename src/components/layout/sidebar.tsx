@@ -23,12 +23,9 @@ export function Sidebar() {
     clearMessages();
     setActiveConversationId(null);
 
-    if (pathname === "/chat") {
-      // Ya estamos en /chat, forzar recarga del componente
-      router.refresh();
-    } else {
-      router.push("/chat");
-    }
+    // Siempre usar un timestamp único para forzar re-mount del componente
+    // Esto resetea completamente el hook use-chat
+    router.push("/chat?new=" + Date.now());
   };
 
   return (

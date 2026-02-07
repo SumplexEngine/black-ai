@@ -105,13 +105,32 @@ export function SidebarHistory() {
 
     if (!confirm("¿Eliminar este chat?")) return;
 
-    setChats((prev) => prev.filter((c) => c.id !== chatId));
+    try {
+      const supabase = createClient();
 
-    const supabase = createClient();
-    await supabase.from("conversations").delete().eq("id", chatId);
+      // Eliminar de Supabase primero
+      const { error } = await supabase
+        .from("conversations")
+        .delete()
+        .eq("id", chatId);
 
-    if (pathname === `/chat/${chatId}`) {
-      router.push("/chat?new=" + Date.now());
+      if (error) {
+        console.error("Error deleting conversation:", error);
+        alert("Error al eliminar el chat");
+        return;
+      }
+
+      // Si estamos visualizando el chat que se está eliminando, ir a nuevo chat
+      if (pathname === `/chat/${chatId}`) {
+        // Forzar redirección a nuevo chat limpio inmediatamente
+        router.replace("/chat?new=" + Date.now());
+      } else {
+        // Si está en otro chat, actualizar el historial localmente
+        setChats((prev) => prev.filter((c) => c.id !== chatId));
+      }
+    } catch (error) {
+      console.error("Error in handleDelete:", error);
+      alert("Error al eliminar el chat");
     }
   };
 
