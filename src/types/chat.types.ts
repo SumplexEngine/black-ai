@@ -8,8 +8,6 @@ import type { AIModel, Conversation, Message } from "./database.types";
 // ROLES Y MENSAJES
 // ============================================
 
-export type MessageRole = "user" | "assistant" | "system";
-
 export interface ChatMessage extends Message {
   isStreaming?: boolean;
   isError?: boolean;

@@ -11,9 +11,11 @@ export * from "./routes";
 // ============================================
 
 export const APP_NAME = "Black AI";
-export const APP_DESCRIPTION =
-  "Tu asistente de IA inteligente potenciado por Gemini";
+export const APP_DESCRIPTION = "Tu asistente de inteligencia artificial";
 export const APP_VERSION = "1.0.0";
+
+export const COMPANY_NAME = "Sumplex Studios";
+export const COMPANY_CODE = "Sumplex Code";
 
 export const SUPPORT_EMAIL = "support@blackai.com";
 
@@ -25,9 +27,9 @@ export const APP_CONFIG = {
   name: APP_NAME,
   description: APP_DESCRIPTION,
   version: APP_VERSION,
+  company: COMPANY_NAME,
   defaultLocale: "es",
   supportedLocales: ["es", "en"],
-  aiProvider: "Gemini AI",
 } as const;
 
 // ============================================
@@ -51,8 +53,9 @@ export const TIMEOUTS = {
   TOAST_DURATION: 5_000,
   DEBOUNCE_SEARCH: 300,
   AUTO_SAVE: 1_000,
-  SESSION_REFRESH: 60_000 * 5, // 5 minutos
-  AI_REQUEST_TIMEOUT: 60_000, // 1 minuto
+  SESSION_REFRESH: 60_000 * 5,
+  AI_REQUEST_TIMEOUT: 60_000,
+  DAILY_RESET_HOURS: 24,
 } as const;
 
 // ============================================

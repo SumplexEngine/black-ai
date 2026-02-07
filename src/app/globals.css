@@ -1,59 +1,12 @@
 @import "tailwindcss";
 
 /* ============================================
-   BLACK AI - SISTEMA DE DISEÑO 2026
-   ============================================ */
-
-@theme inline {
-  /* Colores Base - Modo Oscuro (Principal) */
-  --color-background: oklch(0.1 0 0);
-  --color-foreground: oklch(0.98 0 0);
-
-  /* Colores de Superficies */
-  --color-card: oklch(0.14 0 0);
-  --color-card-foreground: oklch(0.98 0 0);
-  --color-popover: oklch(0.12 0 0);
-  --color-popover-foreground: oklch(0.98 0 0);
-
-  /* Color Primario - Azul Neón */
-  --color-primary: oklch(0.7 0.2 250);
-  --color-primary-foreground: oklch(0.1 0 0);
-
-  /* Color Secundario */
-  --color-secondary: oklch(0.2 0 0);
-  --color-secondary-foreground: oklch(0.98 0 0);
-
-  /* Colores Muted */
-  --color-muted: oklch(0.2 0 0);
-  --color-muted-foreground: oklch(0.6 0 0);
-
-  /* Color de Acento - Púrpura Neón */
-  --color-accent: oklch(0.65 0.25 300);
-  --color-accent-foreground: oklch(0.1 0 0);
-
-  /* Estados */
-  --color-destructive: oklch(0.6 0.25 25);
-  --color-destructive-foreground: oklch(0.98 0 0);
-  --color-success: oklch(0.7 0.2 145);
-  --color-success-foreground: oklch(0.1 0 0);
-  --color-warning: oklch(0.75 0.15 85);
-  --color-warning-foreground: oklch(0.1 0 0);
-
-  /* Bordes y Focus */
-  --color-border: oklch(0.25 0 0);
-  --color-input: oklch(0.2 0 0);
-  --color-ring: oklch(0.7 0.2 250);
-
-  /* Radio de Bordes */
-  --radius: 0.75rem;
-}
-
-/* ============================================
-   VARIABLES CSS PARA COMPATIBILIDAD HSL
+   BLACK AI - SISTEMA DE DISEÑO
+   Colores: Negro y Blanco
    ============================================ */
 
 :root {
-  /* Modo Oscuro por defecto */
+  /* Modo Oscuro (Principal) - Negro y Blanco */
   --background: 0 0% 4%;
   --foreground: 0 0% 98%;
 
@@ -63,30 +16,34 @@
   --popover: 0 0% 5%;
   --popover-foreground: 0 0% 98%;
 
-  --primary: 217 91% 60%;
+  /* Primary - Blanco */
+  --primary: 0 0% 98%;
   --primary-foreground: 0 0% 4%;
 
+  /* Secondary - Gris oscuro */
   --secondary: 0 0% 12%;
   --secondary-foreground: 0 0% 98%;
 
-  --muted: 0 0% 12%;
+  /* Muted - Gris */
+  --muted: 0 0% 15%;
   --muted-foreground: 0 0% 60%;
 
-  --accent: 270 91% 65%;
-  --accent-foreground: 0 0% 4%;
+  /* Accent - Gris claro */
+  --accent: 0 0% 20%;
+  --accent-foreground: 0 0% 98%;
 
+  /* Estados */
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
-
   --success: 142 76% 45%;
   --success-foreground: 0 0% 4%;
-
   --warning: 45 93% 58%;
   --warning-foreground: 0 0% 4%;
 
-  --border: 0 0% 15%;
+  /* Bordes */
+  --border: 0 0% 18%;
   --input: 0 0% 12%;
-  --ring: 217 91% 60%;
+  --ring: 0 0% 98%;
 
   --radius: 0.75rem;
 }
@@ -102,30 +59,21 @@
   --popover: 0 0% 100%;
   --popover-foreground: 0 0% 4%;
 
-  --primary: 217 91% 50%;
+  --primary: 0 0% 9%;
   --primary-foreground: 0 0% 100%;
 
   --secondary: 0 0% 94%;
-  --secondary-foreground: 0 0% 4%;
+  --secondary-foreground: 0 0% 9%;
 
   --muted: 0 0% 94%;
   --muted-foreground: 0 0% 40%;
 
-  --accent: 270 91% 55%;
-  --accent-foreground: 0 0% 100%;
-
-  --destructive: 0 84% 50%;
-  --destructive-foreground: 0 0% 100%;
-
-  --success: 142 76% 35%;
-  --success-foreground: 0 0% 100%;
-
-  --warning: 45 93% 48%;
-  --warning-foreground: 0 0% 4%;
+  --accent: 0 0% 94%;
+  --accent-foreground: 0 0% 9%;
 
   --border: 0 0% 88%;
   --input: 0 0% 94%;
-  --ring: 217 91% 50%;
+  --ring: 0 0% 9%;
 }
 
 /* ============================================
@@ -138,6 +86,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
@@ -151,7 +100,7 @@ body {
 }
 
 /* ============================================
-   SCROLLBAR PERSONALIZADO
+   SCROLLBAR GLOBAL
    ============================================ */
 
 ::-webkit-scrollbar {
@@ -160,22 +109,21 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--background));
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted));
+  background: #333;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground));
+  background: #444;
 }
 
-/* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: hsl(var(--muted)) hsl(var(--background));
+  scrollbar-color: #333 #0a0a0a;
 }
 
 /* ============================================
@@ -183,8 +131,8 @@ body {
    ============================================ */
 
 ::selection {
-  background: hsl(var(--primary) / 0.3);
-  color: hsl(var(--foreground));
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
 }
 
 /* ============================================
@@ -192,187 +140,167 @@ body {
    ============================================ */
 
 :focus-visible {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid rgba(255, 255, 255, 0.5);
   outline-offset: 2px;
 }
 
 /* ============================================
-   UTILIDADES PERSONALIZADAS
+   INPUTS Y CAMPOS DE FORMULARIO
    ============================================ */
 
-/* Glassmorphism */
+/* Reset de colores automáticos del navegador */
+input,
+textarea,
+select {
+  color-scheme: dark;
+  background-color: #0a0a0a !important;
+  color: white !important;
+}
+
+/* Autofill - Quitar fondo azul/amarillo del navegador */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #0a0a0a inset !important;
+  -webkit-text-fill-color: white !important;
+  background-color: #0a0a0a !important;
+  color: white !important;
+  caret-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Placeholder */
+input::placeholder,
+textarea::placeholder {
+  color: #666 !important;
+  opacity: 1;
+}
+
+/* ============================================
+   SELECT / DROPDOWN STYLES
+   ============================================ */
+
+select {
+  background-color: #0a0a0a !important;
+  color: white !important;
+}
+
+select option {
+  background-color: #0a0a0a !important;
+  color: white !important;
+  padding: 12px;
+}
+
+select option:hover,
+select option:focus,
+select option:checked {
+  background-color: #1a1a1a !important;
+  color: white !important;
+}
+
+select option:disabled {
+  color: #666 !important;
+}
+
+/* Firefox */
+@-moz-document url-prefix() {
+  select {
+    background-color: #0a0a0a !important;
+    color: white !important;
+  }
+
+  select option {
+    background-color: #0a0a0a !important;
+    color: white !important;
+  }
+}
+
+/* Scrollbar dentro del select */
+select::-webkit-scrollbar {
+  width: 8px;
+}
+
+select::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+select::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+select::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   UTILIDADES
+   ============================================ */
+
 .glass {
-  background: hsl(var(--card) / 0.8);
+  background: rgba(10, 10, 10, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid hsl(var(--border) / 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Gradiente de texto */
-.text-gradient {
-  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Glow effect */
 .glow {
   box-shadow:
-    0 0 20px hsl(var(--primary) / 0.3),
-    0 0 40px hsl(var(--primary) / 0.2),
-    0 0 60px hsl(var(--primary) / 0.1);
-}
-
-.glow-accent {
-  box-shadow:
-    0 0 20px hsl(var(--accent) / 0.3),
-    0 0 40px hsl(var(--accent) / 0.2),
-    0 0 60px hsl(var(--accent) / 0.1);
-}
-
-/* Hover glow */
-.hover-glow {
-  transition: box-shadow 0.3s ease;
-}
-
-.hover-glow:hover {
-  box-shadow:
-    0 0 20px hsl(var(--primary) / 0.4),
-    0 0 40px hsl(var(--primary) / 0.2);
-}
-
-/* Animación de carga */
-.loading-dots span {
-  animation: typing 1.5s infinite;
-}
-
-.loading-dots span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.loading-dots span:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-/* ============================================
-   CÓDIGO Y SINTAXIS
-   ============================================ */
-
-pre {
-  background: hsl(var(--card)) !important;
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-  padding: 1rem;
-  overflow-x: auto;
-}
-
-code {
-  font-family: var(--font-geist-mono), "JetBrains Mono", monospace;
-  font-size: 0.875em;
-}
-
-:not(pre) > code {
-  background: hsl(var(--muted));
-  padding: 0.2em 0.4em;
-  border-radius: calc(var(--radius) - 4px);
-}
-
-/* ============================================
-   ANIMACIONES DE ENTRADA
-   ============================================ */
-
-@keyframes enter-from-bottom {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes enter-from-top {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes enter-from-left {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes enter-from-right {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-enter-bottom {
-  animation: enter-from-bottom 0.4s ease-out forwards;
-}
-
-.animate-enter-top {
-  animation: enter-from-top 0.4s ease-out forwards;
-}
-
-.animate-enter-left {
-  animation: enter-from-left 0.4s ease-out forwards;
-}
-
-.animate-enter-right {
-  animation: enter-from-right 0.4s ease-out forwards;
-}
-
-/* ============================================
-   CAPAS PARA Z-INDEX
-   ============================================ */
-
-.layer-base {
-  z-index: 0;
-}
-.layer-content {
-  z-index: 10;
-}
-.layer-overlay {
-  z-index: 20;
-}
-.layer-dropdown {
-  z-index: 30;
-}
-.layer-sticky {
-  z-index: 40;
-}
-.layer-modal {
-  z-index: 50;
-}
-.layer-popover {
-  z-index: 60;
-}
-.layer-tooltip {
-  z-index: 70;
-}
-.layer-toast {
-  z-index: 80;
-}
-.layer-max {
-  z-index: 100;
+    0 0 20px rgba(255, 255, 255, 0.1),
+    0 0 40px rgba(255, 255, 255, 0.05);
 }

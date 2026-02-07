@@ -1,25 +1,22 @@
 /**
  * Rutas de la aplicación
- * Centralizar las rutas evita errores de tipeo
  */
 
 export const ROUTES = {
-  // ============================================
-  // PÚBLICAS
-  // ============================================
+  // Públicas
   HOME: "/",
 
-  // ============================================
-  // AUTENTICACIÓN
-  // ============================================
+  PRICING: "/pricing",
+
+  // Auth
   LOGIN: "/login",
   REGISTER: "/register",
   FORGOT_PASSWORD: "/forgot-password",
+  RESET_PASSWORD: "/reset-password",
   VERIFY_EMAIL: "/verify-email",
+  COMPLETE_PROFILE: "/complete-profile",
 
-  // ============================================
-  // DASHBOARD
-  // ============================================
+  // Dashboard
   DASHBOARD: "/chat",
   CHAT: "/chat",
   CHAT_CONVERSATION: (id: string) => `/chat/${id}` as const,
@@ -27,15 +24,10 @@ export const ROUTES = {
   SETTINGS: "/settings",
   PROFILE: "/profile",
 
-  // ============================================
   // API
-  // ============================================
   API: {
     AUTH: {
       CALLBACK: "/api/auth/callback",
-      LOGIN: "/api/auth/login",
-      REGISTER: "/api/auth/register",
-      LOGOUT: "/api/auth/logout",
     },
     CHAT: "/api/chat",
     CONVERSATIONS: "/api/conversations",
@@ -51,16 +43,19 @@ export const PROTECTED_ROUTES = [
   "/history",
   "/settings",
   "/profile",
+  "/complete-profile",
+  "/pricing",
 ] as const;
 
 /**
- * Rutas públicas (accesibles sin auth)
+ * Rutas públicas
  */
 export const PUBLIC_ROUTES = [
   "/",
   "/login",
   "/register",
   "/forgot-password",
+  "/reset-password",
   "/verify-email",
 ] as const;
 
